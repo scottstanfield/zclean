@@ -1,3 +1,9 @@
+# Scott Stanfield's light-weight zshrc/oh-my-zsh/powerline prompt
+#
+# A lot of this depends on coloring from iTerm2 and Solarized
+# See http://github.com/scottstanfield/newmac for more details
+#
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/denver/oh-my-zsh
 
@@ -42,18 +48,16 @@ function setup_paths {
 
 	path=(${HOME}/bin /usr/local/bin /usr/local/sbin $path)
 
-	# For Racket apps (DrRacket)
-	# path+=('/Applications/Racket v6.1.1/bin')
-
 	# Anaconda distribution of Python
 	path=('/Users/scott/anaconda/bin' $path)
 
 	# Remove duplicates
-	# path=($^path(N))
+	path=($^path(N))
 }
 
 source ~/denver/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 highlights
+
 source ~/denver/oh-my-zsh/oh-my-zsh.sh
 setup_paths
 
