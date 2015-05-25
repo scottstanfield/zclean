@@ -18,7 +18,7 @@ DISABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-function highlights {
+function my_highlights {
 	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 	ZSH_HIGHLIGHT_PATTERNS+=('rm -rf' 'fg=white,bold,bg=red')
 	ZSH_HIGHLIGHT_PATTERNS+=('sudo ' 'fg=white,bold,bg=red')
@@ -29,7 +29,7 @@ function highlights {
 	ZSH_HIGHLIGHT_STYLES[function]=fg=blue
 }
 
-function setup_paths {
+function my_paths {
 	# PATHS
 	# Use man pages from GNU first; fall back to OS X builtins
 	# https://gist.github.com/quickshiftin/9130153
@@ -55,11 +55,11 @@ function setup_paths {
 	path=($^path(N))
 }
 
-source ~/denver/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-highlights
-
+plugins=(zsh-syntax-highlighting)
 source ~/denver/oh-my-zsh/oh-my-zsh.sh
-setup_paths
+
+my_highlights
+my_paths
 
 source ~/denver/zsh-scott
 source ~/denver/prompt/base.sh
