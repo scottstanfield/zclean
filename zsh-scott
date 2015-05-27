@@ -114,7 +114,7 @@ if is_mac; then
         fi
     }
 
-    locate() { mdfind "kMDItemDisplayName == '$@'c" }
+    locate() { mdfind "kMDItemDisplayName == '*$@*'c" }
     mailapp() {
         if [[ -n $1 ]]; then msg=$1
         else msg=$(cat | sed -e 's/\\/\\\\/g' -e 's/\"/\\\"/g')
