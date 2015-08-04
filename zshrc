@@ -58,12 +58,14 @@ function my_paths {
 plugins=(zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
+# Load all of the config files in ~/oh-my-zsh that end in .zsh
+# TIP: Add files you don't want in git to .gitignore
+for config_file ($ZCLEAN/*.zsh); do
+  source $config_file
+done
+
 my_highlights
 my_paths
-
-source $ZCLEAN/zsh-scott
-source $ZCLEAN/prompt/base.sh
-source $ZCLEAN/prompt/arialdo-pathinline.zsh
 
 # VARIABLES
 export LANG=en_US.UTF-8
