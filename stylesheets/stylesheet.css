@@ -86,7 +86,9 @@ header h2 {
 
 .header-img {
 	width: 300px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
+	align-content: center;
+	margin: auto;
 }
 
 #container {
