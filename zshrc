@@ -1,17 +1,17 @@
 # Scott Stanfield's light-weight zshrc/oh-my-zsh/powerline prompt
+# scottstanfield.com/zclean
 #
 # A lot of this depends on coloring from iTerm2 and Solarized
 # See http://github.com/scottstanfield/newmac for more details
 #
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/denver/oh-my-zsh
+# Path to your zclean installation
+export ZCLEAN=$HOME/zclean
+export ZSH=$ZCLEAN/oh-my-zsh
 
 # Keep getting good tips from:
 # https://github.com/janmoesen/tilde/blob/master/.bash/commands#L95-L121
 # https://github.com/mathiasbynens/dotfiles/blob/master/.functions#L24-L27
-
-POWERLINE_RIGHT_A="exit-status"
 
 DISABLE_AUTO_UPDATE="true"
 DISABLE_CORRECTION="true"
@@ -56,14 +56,14 @@ function my_paths {
 }
 
 plugins=(zsh-syntax-highlighting)
-source ~/denver/oh-my-zsh/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 my_highlights
 my_paths
 
-source ~/denver/zsh-scott
-source ~/denver/prompt/base.sh
-source ~/denver/prompt/arialdo-pathinline.zsh
+source $ZCLEAN/zsh-scott
+source $ZCLEAN/prompt/base.sh
+source $ZCLEAN/prompt/arialdo-pathinline.zsh
 
 # VARIABLES
 export LANG=en_US.UTF-8
