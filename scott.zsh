@@ -134,7 +134,6 @@ if is_mac; then
         done
     }
     alias ql='qlmanage -p 2>/dev/null' # OS X Quick Look
-    alias oo='open .' # open current dir in OS X Finder
     alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
     alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 fi
