@@ -86,9 +86,13 @@ header h2 {
 
 .header-img {
 	width: 300px;
-	margin-bottom: 50px;
+}
+
+.img-box {
+	width: 100%;
 	align-content: center;
 	margin: auto;
+	margin-bottom: 50px;
 }
 
 #container {
