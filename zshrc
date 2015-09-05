@@ -46,7 +46,7 @@ function my_paths {
 		path=(/usr/local/share/npm/bin $path)
 	fi
 
-	path=(${HOME}/bin /usr/local/bin /usr/local/sbin $path)
+	path=(${HOME}/bin /usr/local/bin /usr/local/sbin $path .)
 
 	# Anaconda distribution of Python
 	path=('/Users/scott/anaconda/bin' $path)
