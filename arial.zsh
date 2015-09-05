@@ -44,7 +44,7 @@ violet=$CYAN
 branch_color=$BLUE
 reset=$RESET
 
-PROMPT='%{$fg_bold[green]%}%~%{$fg_bold[red]%} ∙ '
+PROMPT='%{$fg_bold[green]%}%~%{$fg_bold[red]%}%(?.. [%?]) ∙ '
 RPROMPT='$(build_prompt)'
 #RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
