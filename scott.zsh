@@ -9,6 +9,7 @@ if ls --color > /dev/null 2>&1; then # GNU ls
 else # OS X ls
     lsflag="-GF"
 fi
+
 alias ls="command ls ${lsflag}"
 alias ll="ls -l ${lsflag}"
 alias la="ls -a ${lsflag}"
@@ -80,7 +81,7 @@ loop () {
 	done
 }
 
-ex() {
+z() {
     if [[ -f $1 ]]; then
         case $1 in
           *.tar.bz2) tar xvjf $1;;
