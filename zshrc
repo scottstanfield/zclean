@@ -46,7 +46,10 @@ function my_paths {
 		path=(/usr/local/share/npm/bin $path)
 	fi
 
+
 	path=(${HOME}/bin /usr/local/bin /usr/local/sbin $path .)
+
+	path=($path '/Users/scott/context/tex/texmf-osx-64/bin' )
 
 	# Anaconda distribution of Python
 	path=('/Users/scott/anaconda/bin' $path)
@@ -69,4 +72,9 @@ my_paths
 
 # VARIABLES
 export LANG=en_US.UTF-8
+
+# NVM to manage Node
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 

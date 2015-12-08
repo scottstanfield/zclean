@@ -2,6 +2,15 @@ is_mac() { [[ $OSTYPE == darwin* ]] }
 
 alias vz="vi ~/.zshrc"
 alias sz="source ~/.zshrc"
+alias vit="vi ~/.tmux.conf"
+alias viz="vi ~/zclean/scott.zsh"
+alias soz="source ~/zclean/scott.zsh"
+alias hg="history -1000 | grep "
+
+
+setopt interactive_comments  # allows these # comments in shell; good for copy/paste
+setopt pushd_ignore_dups     # skip duplicate dirs when you usse pushd
+# setopt extended_glob		 # treat #, ~ and ^ as patterns for filename generation
 
 # Detect which 'ls' flavor to use
 if ls --version > /dev/null 2>&1; then # OS X version of ls
@@ -13,7 +22,7 @@ fi
 alias ls="command ls ${lsflag}"
 alias ll="ls -l ${lsflag}"
 alias la="ls -a ${lsflag}"
-export LS_COLORS="no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:*.db=35:"
+export LS_COLORS="no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:*.db=35:*.tmp=36:"
 
 alias h="history"
 alias vi="vim -p"
@@ -105,6 +114,39 @@ z() {
     fi
 }
 
+function console () {
+  if [[ $# > 0 ]]; then
+    query=$(echo "$*"|tr -s ' ' '|')
+    tail -f /var/log/system.log|grep -i --color=auto -E "$query"
+  else
+    tail -f /var/log/system.log
+  fi
+}
+
+function any() {
+    emulate -L zsh
+    unsetopt KSH_ARRAYS
+    if [[ -z "$1" ]] ; then
+        echo "any - grep for process(es) by keyword" >&2
+        echo "Usage: any " >&2 ; return 1
+    else
+        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+    fi
+}
+
+# -------------------------------------------------------------------
+# shell function to define words
+# http://vikros.tumblr.com/post/23750050330/cute-little-function-time
+# -------------------------------------------------------------------
+define() {
+  if [[ $# -ge 2 ]] then
+    echo "givedef: too many arguments" >&2
+    return 1
+  else
+    curl "dict://dict.org/d:$1"
+  fi
+}
+
 if is_mac; then
     pman() { man $1 -t | open -f -a Preview } # open man pages in Preview
 
@@ -155,3 +197,4 @@ less_options=(
 export LESS="${less_options[*]}";
 unset less_options;
 export PAGER='less';
+
